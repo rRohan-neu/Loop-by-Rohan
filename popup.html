@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loop by Rohan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <span class="brand-loop">Loop</span>
+      <span class="brand-by">by Rohan</span>
+    </div>
+    <div class="header-streak">
+      <span class="streak-fire">🔥</span>
+      <span id="hdr-streak">0</span>
+      <span class="streak-label">day streak</span>
+    </div>
+  </header>
+
+  <!-- Platform selector -->
+  <section class="section-platforms">
+    <div class="section-label">Active platform</div>
+    <div class="platform-grid">
+      <button class="plat-btn" data-platform="linkedin">
+        <span class="plat-icon">in</span>
+        <span class="plat-name">LinkedIn</span>
+      </button>
+      <button class="plat-btn" data-platform="x">
+        <span class="plat-icon">𝕏</span>
+        <span class="plat-name">X / Twitter</span>
+      </button>
+      <button class="plat-btn" data-platform="instagram">
+        <span class="plat-icon">◎</span>
+        <span class="plat-name">Instagram</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Today's stats -->
+  <section class="section-today">
+    <div class="today-row">
+      <div class="today-stat">
+        <div class="stat-num" id="today-count">0</div>
+        <div class="stat-label">today</div>
+      </div>
+      <div class="today-divider"></div>
+      <div class="today-stat">
+        <div class="stat-num" id="today-alltime">0</div>
+        <div class="stat-label">all time</div>
+      </div>
+      <div class="today-divider"></div>
+      <div class="today-stat">
+        <div class="stat-num" id="today-longest">0</div>
+        <div class="stat-label">best streak</div>
+      </div>
+    </div>
+
+    <!-- Progress toward daily goal -->
+    <div class="goal-progress">
+      <div class="goal-label">
+        <span>Daily goal</span>
+        <span><strong id="goal-current">0</strong> / <span id="goal-target">10</span> comments</span>
+      </div>
+      <div class="goal-track">
+        <div class="goal-fill" id="goal-fill"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform breakdown -->
+  <section class="section-breakdown">
+    <div class="section-label">Today by platform</div>
+    <div class="breakdown-list">
+      <div class="breakdown-item">
+        <span class="bk-platform">LinkedIn</span>
+        <div class="bk-bar-wrap"><div class="bk-bar" id="bk-linkedin"></div></div>
+        <span class="bk-count" id="cnt-linkedin">0</span>
+      </div>
+      <div class="breakdown-item">
+        <span class="bk-platform">X</span>
+        <div class="bk-bar-wrap"><div class="bk-bar" id="bk-x"></div></div>
+        <span class="bk-count" id="cnt-x">0</span>
+      </div>
+      <div class="breakdown-item">
+        <span class="bk-platform">Instagram</span>
+        <div class="bk-bar-wrap"><div class="bk-bar" id="bk-instagram"></div></div>
+        <span class="bk-count" id="cnt-instagram">0</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Streak calendar heatmap -->
+  <section class="section-calendar">
+    <div class="section-label">Streak calendar <span class="cal-legend">darker = more comments</span></div>
+    <div class="calendar-grid" id="calendar-grid"></div>
+  </section>
+
+  <!-- Settings -->
+  <section class="section-settings">
+    <div class="section-label">Settings</div>
+
+    <div class="setting-row">
+      <label class="setting-label">Daily goal</label>
+      <div class="goal-stepper">
+        <button id="goal-minus">−</button>
+        <span id="goal-display">10</span>
+        <button id="goal-plus">+</button>
+      </div>
+    </div>
+
+    <div class="setting-row">
+      <label class="setting-label">Default platform</label>
+      <select id="default-platform-select">
+        <option value="linkedin">LinkedIn</option>
+        <option value="x">X / Twitter</option>
+        <option value="instagram">Instagram</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Footer note -->
+  <footer>
+    <span class="privacy-note">🔒 All data stored locally on your device only.</span>
+  </footer>
+
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

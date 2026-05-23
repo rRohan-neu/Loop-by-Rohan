@@ -1,0 +1,384 @@
+/* popup.css — Loop by Rohan */
+
+:root {
+  --ivory:      #FAF7F2;
+  --beige:      #E8DCC8;
+  --beige-dark: #D4C5AD;
+  --blue:       #7EB8C9;
+  --blue-dark:  #5A9AAD;
+  --sage:       #A8C5A0;
+  --text:       #2C2C2C;
+  --text-muted: #8A7F74;
+  --radius:     14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 320px;
+  background: var(--ivory);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+#app {
+  padding: 0 0 8px;
+}
+
+/* ── HEADER ── */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px 14px;
+  border-bottom: 1.5px solid var(--beige);
+  background: var(--ivory);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.brand-loop {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.brand-by {
+  font-size: 11px;
+  color: var(--blue);
+  font-weight: 500;
+}
+
+.header-streak {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--beige);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.streak-fire {
+  font-size: 14px;
+}
+
+#hdr-streak {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.streak-label {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* ── SECTIONS ── */
+section {
+  padding: 14px 18px;
+  border-bottom: 1.5px solid var(--beige);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── PLATFORMS ── */
+.platform-grid {
+  display: flex;
+  gap: 7px;
+}
+
+.plat-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 6px;
+  background: var(--beige);
+  border: 1.5px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.plat-btn:hover {
+  background: var(--beige-dark);
+}
+
+.plat-btn.active {
+  background: white;
+  border-color: var(--blue);
+  box-shadow: 0 2px 8px rgba(126,184,201,0.2);
+}
+
+.plat-icon {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.plat-btn.active .plat-icon {
+  color: var(--blue);
+}
+
+.plat-name {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.plat-btn.active .plat-name {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── TODAY STATS ── */
+.today-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 14px;
+}
+
+.today-stat {
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.stat-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.today-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--beige);
+}
+
+.goal-progress {
+  margin-top: 2px;
+}
+
+.goal-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.goal-label strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.goal-track {
+  height: 8px;
+  background: var(--beige);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.goal-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--blue-dark));
+  border-radius: 10px;
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  width: 0%;
+}
+
+.goal-fill.met {
+  background: linear-gradient(90deg, var(--sage), #7aaa72);
+}
+
+/* ── BREAKDOWN ── */
+.breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.breakdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bk-platform {
+  font-size: 11px;
+  color: var(--text-muted);
+  width: 58px;
+  flex-shrink: 0;
+}
+
+.bk-bar-wrap {
+  flex: 1;
+  height: 7px;
+  background: var(--beige);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bk-bar {
+  height: 100%;
+  background: var(--blue);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+
+.bk-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  width: 18px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ── CALENDAR ── */
+.cal-legend {
+  font-weight: 400;
+  font-size: 9px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-muted);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 3px;
+}
+
+.cal-day {
+  aspect-ratio: 1;
+  border-radius: 3px;
+  background: var(--beige);
+  cursor: default;
+  position: relative;
+  transition: transform 0.1s;
+}
+
+.cal-day:hover {
+  transform: scale(1.2);
+}
+
+.cal-day.level-1 { background: #c8dfe5; }
+.cal-day.level-2 { background: #a3c8d4; }
+.cal-day.level-3 { background: #7EB8C9; }
+.cal-day.level-4 { background: #5A9AAD; }
+.cal-day.level-5 { background: #3d7d90; }
+
+.cal-day.today {
+  box-shadow: 0 0 0 1.5px var(--blue);
+}
+
+/* ── SETTINGS ── */
+.section-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.setting-label {
+  font-size: 12px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.goal-stepper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--beige);
+  border-radius: 10px;
+  padding: 4px 10px;
+}
+
+.goal-stepper button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1;
+  padding: 0 2px;
+  transition: color 0.15s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.goal-stepper button:hover {
+  color: var(--text);
+}
+
+#goal-display {
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 22px;
+  text-align: center;
+}
+
+#default-platform-select {
+  background: var(--beige);
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--text);
+  cursor: pointer;
+  outline: none;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 10px 18px 6px;
+  text-align: center;
+}
+
+.privacy-note {
+  font-size: 10px;
+  color: var(--text-muted);
+}

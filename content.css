@@ -1,0 +1,376 @@
+/* Loop by Rohan — Floating Pill Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --loop-ivory: #FAF7F2;
+  --loop-beige: #E8DCC8;
+  --loop-blue: #7EB8C9;
+  --loop-blue-dark: #5A9AAD;
+  --loop-sage: #A8C5A0;
+  --loop-text: #2C2C2C;
+  --loop-text-muted: #8A7F74;
+  --loop-shadow: rgba(44, 44, 44, 0.12);
+  --loop-radius: 20px;
+  --loop-ring-size: 52px;
+}
+
+/* ── CONTAINER ── */
+#loop-pill-container {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 2147483647;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--loop-text);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ── COLLAPSED STATE (tiny dot) ── */
+#loop-pill-container.collapsed #loop-pill {
+  display: none;
+}
+
+#loop-pill-container.collapsed #loop-restore-dot {
+  display: flex;
+}
+
+#loop-restore-dot {
+  display: none;
+  width: 36px;
+  height: 36px;
+  background: var(--loop-blue);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--loop-shadow);
+  transition: transform 0.2s ease;
+}
+
+#loop-restore-dot:hover {
+  transform: scale(1.1);
+}
+
+#loop-restore-dot svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+}
+
+/* ── MAIN PILL ── */
+#loop-pill {
+  background: var(--loop-ivory);
+  border-radius: var(--loop-radius);
+  box-shadow: 0 8px 32px var(--loop-shadow), 0 2px 8px rgba(126, 184, 201, 0.15);
+  border: 1.5px solid var(--loop-beige);
+  padding: 16px 18px 14px;
+  width: 220px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: loop-slide-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes loop-slide-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+/* ── HEADER ROW ── */
+#loop-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+#loop-brand {
+  font-family: 'DM Serif Display', serif;
+  font-size: 15px;
+  color: var(--loop-text);
+  letter-spacing: 0.01em;
+}
+
+#loop-brand span {
+  color: var(--loop-blue);
+}
+
+#loop-hide-btn {
+  background: var(--loop-beige);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--loop-text-muted);
+  transition: background 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+
+#loop-hide-btn:hover {
+  background: var(--loop-beige-dark, #D4C5AD);
+  color: var(--loop-text);
+}
+
+/* ── PLATFORM TABS ── */
+#loop-platforms {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 13px;
+}
+
+.loop-platform-btn {
+  flex: 1;
+  background: var(--loop-beige);
+  border: 1.5px solid transparent;
+  border-radius: 10px;
+  padding: 5px 4px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--loop-text-muted);
+  text-align: center;
+  transition: all 0.18s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.loop-platform-btn:hover {
+  background: #ddd5c4;
+  color: var(--loop-text);
+}
+
+.loop-platform-btn.active {
+  background: var(--loop-blue);
+  border-color: var(--loop-blue);
+  color: white;
+}
+
+/* ── PROGRESS BAR ── */
+#loop-progress-wrap {
+  margin-bottom: 13px;
+}
+
+#loop-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--loop-text-muted);
+  margin-bottom: 5px;
+}
+
+#loop-progress-label strong {
+  color: var(--loop-text);
+  font-weight: 600;
+}
+
+#loop-progress-track {
+  height: 7px;
+  background: var(--loop-beige);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#loop-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--loop-blue), var(--loop-blue-dark));
+  border-radius: 10px;
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-width: 0%;
+}
+
+#loop-progress-fill.goal-met {
+  background: linear-gradient(90deg, var(--loop-sage), #7aaa72);
+}
+
+/* ── SESSION TOGGLE ── */
+#loop-session-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 7px 10px;
+  background: var(--loop-beige);
+  border-radius: 10px;
+}
+
+#loop-session-label {
+  font-size: 11px;
+  color: var(--loop-text-muted);
+  font-weight: 500;
+}
+
+#loop-session-label.active {
+  color: var(--loop-sage);
+  font-weight: 600;
+}
+
+#loop-session-toggle {
+  width: 32px;
+  height: 18px;
+  background: #ccc;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+  padding: 0;
+}
+
+#loop-session-toggle.on {
+  background: var(--loop-sage);
+}
+
+#loop-session-toggle::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#loop-session-toggle.on::after {
+  transform: translateX(14px);
+}
+
+/* ── COMMENT BUTTON ── */
+#loop-comment-btn-wrap {
+  position: relative;
+  width: 100%;
+}
+
+#loop-comment-btn {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--loop-blue);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#loop-comment-btn:hover:not(:disabled) {
+  background: var(--loop-blue-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(126, 184, 201, 0.4);
+}
+
+#loop-comment-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+#loop-comment-btn:disabled {
+  cursor: not-allowed;
+  background: var(--loop-beige);
+  color: var(--loop-text-muted);
+}
+
+#loop-comment-btn.session-off {
+  background: var(--loop-beige);
+  color: var(--loop-text-muted);
+  cursor: not-allowed;
+}
+
+/* Cooldown ring overlay */
+#loop-cooldown-ring {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+}
+
+#loop-cooldown-ring.visible {
+  display: block;
+}
+
+#loop-cooldown-ring svg {
+  transform: rotate(-90deg);
+  width: 22px;
+  height: 22px;
+}
+
+#loop-cooldown-ring circle {
+  fill: none;
+  stroke: rgba(255,255,255,0.35);
+  stroke-width: 2.5;
+}
+
+#loop-cooldown-ring .ring-progress {
+  stroke: white;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+}
+
+/* ── STREAK FOOTER ── */
+#loop-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--loop-text-muted);
+}
+
+#loop-streak-fire {
+  font-size: 13px;
+}
+
+#loop-streak-count {
+  font-weight: 700;
+  color: var(--loop-text);
+}
+
+/* ── GOAL MET CELEBRATION ── */
+#loop-goal-badge {
+  display: none;
+  text-align: center;
+  padding: 6px 0 2px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--loop-sage);
+  animation: loop-pulse 1.5s ease infinite;
+}
+
+#loop-goal-badge.visible {
+  display: block;
+}
+
+@keyframes loop-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* ── CONFETTI PARTICLES ── */
+.loop-confetti {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  pointer-events: none;
+  animation: loop-confetti-fall 1.4s ease-out forwards;
+  z-index: 2147483647;
+}
+
+@keyframes loop-confetti-fall {
+  0%   { opacity: 1; transform: translateY(0) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(120px) rotate(720deg); }
+}
