@@ -18,7 +18,7 @@ A lightweight Chrome extension that helps creators stay consistent with commenti
 
 🔒 **All data is stored locally on your device using Chrome storage. No servers. No accounts. No tracking.**
 
-## Install (Developer Mode)
+## Install (Developer Mode) - takes 2 mins
 
 1. Download or clone this repo
 2. Go to `chrome://extensions`
